@@ -88,4 +88,5 @@ footer {
     .main-content {
         flex-direction: column;
     }
+
 }
