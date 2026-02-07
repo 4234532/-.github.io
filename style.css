@@ -1,92 +1,186 @@
-/* 全局重置 */
+:root {
+    --primary-color: #2d3436;
+    --accent-color: #0984e3;
+    --text-color: #2d3436;
+    --bg-color: #f9f9f9;
+}
+
 body {
-    font-family: 'Helvetica Neue', Arial, sans-serif;
+    font-family: 'Inter', 'Noto Serif SC', sans-serif;
+    line-height: 1.6;
     margin: 0;
-    padding: 0;
-    background-color: #f4f4f4;
-    color: #333;
+    background-color: var(--bg-color);
+    color: var(--text-color);
 }
 
 .container {
-    width: 90%;
-    max-width: 1000px;
+    max-width: 1100px;
     margin: 0 auto;
+    padding: 0 20px;
 }
 
-/* 顶部样式 */
-header {
-    background: #333;
-    color: #fff;
+/* 导航栏 */
+.navbar {
+    background: #fff;
     padding: 20px 0;
+    border-bottom: 1px solid #eee;
+    position: sticky;
+    top: 0;
+    z-index: 100;
 }
 
-header .container {
+.navbar .container {
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
-header nav a {
-    color: #fff;
+.logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    letter-spacing: 2px;
     text-decoration: none;
-    margin-left: 20px;
+    color: var(--primary-color);
 }
 
-/* 布局样式 */
-.main-content {
+.nav-links {
+    list-style: none;
     display: flex;
-    margin-top: 20px;
-    gap: 20px;
+    gap: 25px;
 }
 
-main {
-    flex: 3; /* 左侧文章占3份宽度 */
-}
-
-aside {
-    flex: 1; /* 右侧侧边栏占1份宽度 */
-}
-
-/* 卡片样式 */
-.card {
-    background: #fff;
-    padding: 20px;
-    margin-bottom: 20px;
-    border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-}
-
-.date {
-    color: #888;
-    font-size: 0.9em;
-}
-
-.btn {
-    display: inline-block;
-    background: #007bff;
-    color: #fff;
-    padding: 10px 15px;
+.nav-links a {
     text-decoration: none;
-    border-radius: 4px;
-    margin-top: 10px;
+    color: #636e72;
+    font-weight: 500;
+    transition: 0.3s;
 }
 
-.btn:hover {
-    background: #0056b3;
+.nav-links a:hover {
+    color: var(--accent-color);
+}
+
+/* 巨幕区 */
+.hero {
+    background: #fff;
+    padding: 80px 0;
+    text-align: center;
+    border-bottom: 1px solid #eee;
+}
+
+.hero h2 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    font-family: 'Noto Serif SC', serif;
+}
+
+/* 布局 */
+.main-layout {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 40px;
+    margin-top: 40px;
+}
+
+/* 文章卡片 */
+.post-card {
+    background: #fff;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    margin-bottom: 30px;
+    transition: transform 0.3s;
+}
+
+.post-card:hover {
+    transform: translateY(-5px);
+}
+
+.post-image {
+    height: 250px;
+    background-size: cover;
+    background-position: center;
+}
+
+.post-content {
+    padding: 25px;
+}
+
+.category {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    color: var(--accent-color);
+    font-weight: 700;
+}
+
+.post-content h3 {
+    margin: 10px 0;
+    font-size: 1.5rem;
+}
+
+.post-meta {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.9rem;
+    color: #b2bec3;
+}
+
+.read-more {
+    text-decoration: none;
+    color: var(--primary-color);
+    font-weight: 600;
+}
+
+/* 侧边栏 */
+.widget {
+    background: #fff;
+    padding: 25px;
+    border-radius: 12px;
+    margin-bottom: 30px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+}
+
+.avatar {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    margin-bottom: 15px;
+}
+
+.widget h4 {
+    border-bottom: 2px solid var(--accent-color);
+    display: inline-block;
+    margin-bottom: 15px;
+}
+
+.categories ul {
+    list-style: none;
+    padding: 0;
+}
+
+.categories li {
+    padding: 8px 0;
+    border-bottom: 1px dotted #eee;
+}
+
+.categories a {
+    text-decoration: none;
+    color: #636e72;
 }
 
 footer {
     text-align: center;
-    padding: 20px;
-    margin-top: 20px;
-    background: #333;
-    color: #fff;
+    padding: 50px 0;
+    color: #b2bec3;
+    background: #fff;
+    margin-top: 50px;
 }
 
-/* 手机端适配 */
-@media (max-width: 768px) {
-    .main-content {
-        flex-direction: column;
+/* 响应式 */
+@media (max-width: 850px) {
+    .main-layout {
+        grid-template-columns: 1fr;
     }
-
 }
